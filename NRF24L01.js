@@ -239,12 +239,12 @@ NRF.prototype.send = function(data/* array of length PAYLOAD */) {
   var success = true;
   console.log(this.getReg(C.STATUS) & C.MAX_RT);
     console.log(this.getReg(C.STATUS) && C.MAX_RT, this.getReg(C.STATUS), C.MAX_RT, C.STATUS);
-  /*
+  
   if (this.getReg(C.STATUS) & C.MAX_RT) {
     print("TX not received "+this.getReg(C.STATUS));
     success = false;
   }
-  */
+  
   digitalWrite(this.CE,0); // disable
   this.setReg(C.CONFIG, BASE_CONFIG | C.PWR_UP | C.PRIM_RX ); // RX mode
   digitalWrite(this.CE,1); // enable
