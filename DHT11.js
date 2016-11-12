@@ -36,7 +36,6 @@ DHT11.prototype.read = function (cb, n) {
         rh : parseInt(d.substr(2,8),2),
         t : parseInt(d.substr(18,8),2)
       });
-      if (o) cb(o);
     } else {
       if (n>1) setTimeout(function() {ht.read(cb,--n);},500);
       else cb({err:true, checksumError:cks>0, raw:d, temp:-1, rh:-1});
