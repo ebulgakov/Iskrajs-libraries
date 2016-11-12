@@ -232,6 +232,10 @@ NRF.prototype.send = function(data/* array of length PAYLOAD */) {
   var n = 1000;
   while ((n--) && !(this.getReg(C.STATUS)&(C.MAX_RT|C.TX_DS))) {}; // waiting
   if (n<=0) print("TX timeout");
+  
+  console.log(n);
+  
+  
   var success = true;
   if (this.getReg(C.STATUS) & C.MAX_RT) {
     print("TX not received "+this.getReg(C.STATUS));
