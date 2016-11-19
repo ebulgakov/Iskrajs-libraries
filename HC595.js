@@ -6,6 +6,9 @@ HC595.prototype.setInt = function (digist, withZero) {
   var ht = this;
   pinMode(ht.pin);
   digitalWrite(ht.pin, 0);
+  sendByte(ht.pin, 0);
+  
+
 
 };
 
