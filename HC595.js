@@ -5,8 +5,12 @@ function HC595(pin) {
 HC595.prototype.setInt = function (digist, withZero) {
   var ht = this;
   pinMode(ht.pin);
-  digitalWrite(ht.pin, 0);
-  sendByte(ht.pin, 0);
+  
+  noInterrupts();
+  MACRO_DIGITAL_WRITE(ht.pin, 0);
+  MACRO_DIGITAL_WRITE(ht.pin, 1);
+  interrupts();
+  delayMicroseconds(30);
   
 
 
